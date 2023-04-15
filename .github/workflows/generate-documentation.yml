@@ -30,7 +30,7 @@ jobs:
       shell: powershell
       run: Remove-Item -Path docs/* -Recurse -Force
 
-    - name: Upload artifact
+    - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: documentation
