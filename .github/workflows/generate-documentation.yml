@@ -27,7 +27,7 @@ jobs:
       run: msbuild Documentation/CodeDocumentation.shfbproj /p:configuration="Release" /m /verbosity:minimal
     
     - name: Upload artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: documentation
         path: docs/*
