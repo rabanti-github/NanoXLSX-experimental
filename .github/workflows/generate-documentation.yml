@@ -25,11 +25,7 @@ jobs:
 
     - name: Generate documentation
       run: msbuild Documentation/CodeDocumentation.shfbproj /p:configuration="Release" /m /verbosity:minimal
-      
-    - name: Clean up docs folder
-      shell: powershell
-      run: Remove-Item -Path docs/* -Recurse -Force
-
+    
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -39,3 +35,7 @@ jobs:
 
     - name: Move documentation to docs folder
       run: Move-Item -Path Documentation/build/* -Destination docs/
+
+    - name: Clean up docs folder
+      shell: powershell
+      run: Remove-Item -Path docs/* -Recurse -Force
