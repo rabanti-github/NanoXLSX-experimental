@@ -34,7 +34,7 @@ jobs:
         if-no-files-found: error
 
     - name: Move documentation to docs folder
-      run: Move-Item -Path Documentation/build/* -Destination docs/
+      run: Move-Item -Path Documentation/docs/* -Destination docs/
 
     - name: Clean up docs folder
       shell: powershell
