@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: documentation
-        path: NanoXLSX/NanoXLSX/docs/*
+        path: docs/*
         if-no-files-found: error
 
     - name: Move documentation to docs folder
