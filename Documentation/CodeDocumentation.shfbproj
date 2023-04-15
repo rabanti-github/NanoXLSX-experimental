@@ -36,7 +36,7 @@
     <PresentationStyle>VS2013</PresentationStyle>
     <Preliminary>False</Preliminary>
     <NamingMethod>Guid</NamingMethod>
-    <HelpTitle>NanoXLSX Library Documentation</HelpTitle>
+    <HelpTitle>NanoXLSX Library Documentation - Experimental</HelpTitle>
     <ContentPlacement>BelowNamespaces</ContentPlacement>
     <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Internals, Privates, Protected, SealedProtected, ProtectedInternalAsProtected, EditorBrowsableNever, NonBrowsable</VisibleItems>
     <FeedbackEMailAddress>
