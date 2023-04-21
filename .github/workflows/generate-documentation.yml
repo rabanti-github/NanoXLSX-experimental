@@ -12,6 +12,10 @@ jobs:
     - name: Install checkout
       uses: actions/checkout@v3
       
+    - name: Check build origin
+      id: check_build_origin
+      run: echo "::set-output name=build_origin::$(if [[ ${{ github.ref }} == 'refs/heads/master' ]]; then echo 'master'; else echo 'other'; fi)"
+      
     - name: Build NanoXLSX project
       run: dotnet build "NanoXLSX .NET Standard/NanoXLSX .NET Standard.csproj" -c Debug
   
@@ -26,16 +30,18 @@ jobs:
     - name: Generate documentation
       run: msbuild Documentation/CodeDocumentation.shfbproj /p:configuration="Release" /m /verbosity:minimal
     
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+    - name: Push changes to GitHub
+      if: steps.check_build_origin.outputs.build_origin == 'master'
+      uses: ad-m/github-push-action@master
       with:
-        name: documentation
-        path: docs/*
-        if-no-files-found: error
-
-    - name: Move documentation to docs folder
-      run: Move-Item -Path Documentation/docs/* -Destination docs/ -Force
-
+        branch: main
+        directory: docs/
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Skip Push to GitHub
+      if: steps.check_build_origin.outputs.build_origin != 'master'
+      run: echo "Build not triggered from master branch, skipping push to GitHub step"
+    
     - name: Clean up docs folder
       shell: powershell
       run: Remove-Item -Path docs/* -Recurse -Force
