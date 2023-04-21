@@ -14,11 +14,12 @@ jobs:
       
     - name: Check build origin
       id: check_build_origin
+      shell: powershell
       run: |
         if ("${{ github.ref }}" -eq "refs/heads/master") {
-          Write-Host "::set-output name=build_origin::master"
+          Write-Host "build_origin=master" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
         } else {
-          Write-Host "::set-output name=build_origin::other"
+          Write-Host "build_origin=other" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
         }
 
     - name: Build NanoXLSX project
@@ -41,7 +42,7 @@ jobs:
       with:
         branch: main
         directory: docs/
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.PUSH_TOKEN }}
     
     - name: Skip Push to GitHub
       if: steps.check_build_origin.outputs.build_origin != 'master'
