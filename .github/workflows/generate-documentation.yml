@@ -38,11 +38,14 @@ jobs:
     
     - name: Push changes to GitHub
       if: steps.check_build_origin.outputs.build_origin == 'master'
-      uses: ad-m/github-push-action@master
-      with:
-        branch: main
-        directory: docs/
-        github_token: ${{ secrets.PUSH_TOKEN }}
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git add -A
+        git commit -m "Update documentation"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
     
     - name: Skip Push to GitHub
       if: steps.check_build_origin.outputs.build_origin != 'master'
