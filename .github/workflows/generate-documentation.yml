@@ -20,6 +20,7 @@ jobs:
         else
           echo "::set-output name=build_origin::other"
         fi
+
       
     - name: Build NanoXLSX project
       run: dotnet build "NanoXLSX .NET Standard/NanoXLSX .NET Standard.csproj" -c Debug
