@@ -14,7 +14,7 @@ jobs:
       
     - name: Check build origin
       id: check_build_origin
-      run: echo "::set-output name=build_origin::$(if [[ ${{ github.ref }} == 'refs/heads/master' ]]; then echo 'master'; else echo 'other'; fi)"
+      run: echo "::set-output name=build_origin::$(if [[ refs/heads/master == 'refs/heads/master' ]]; then echo 'master'; else echo 'other'; fi)"
       
     - name: Build NanoXLSX project
       run: dotnet build "NanoXLSX .NET Standard/NanoXLSX .NET Standard.csproj" -c Debug
