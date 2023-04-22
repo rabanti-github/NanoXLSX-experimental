@@ -44,10 +44,10 @@ jobs:
     - name: Generate documentation
       run: msbuild Documentation/CodeDocumentation.shfbproj /p:configuration="Release" /m /verbosity:minimal
     
-    - name: Print build origin
+    - name: Debug
       run: |
-        echo "Build origin: ${{ steps.check_build_origin_and_author.outputs.build_origin }}"
-      shell: powershell
+        echo "Build origin: ${{steps.check_build_origin_and_author.outputs.build_origin}}"
+        shell: powershell
     
     - name: Push changes to GitHub
       if: steps.check_build_origin_and_author.outputs.build_origin == 'pass'
