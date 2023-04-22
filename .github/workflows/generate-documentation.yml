@@ -17,18 +17,17 @@ jobs:
       shell: powershell
       run: |
         if ("${{ github.ref }}" -ne "refs/heads/master") {
-          Write-Host "build_origin=skip" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
+          Write-Host "Skipping step because build not triggered from master branch"
           exit 0
         }
         $email = git config --global user.email
         $name = git config --global user.name
         if ($email -eq "actions@github.com" -and $name -eq "GitHub Actions") {
-          Write-Host "build_origin=skip" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
           Write-Host "Skipping step because the last commit was system triggered"
-        } else {
-          Write-Host "build_origin=pass" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
-          Write-Host "Build origin: ${{ steps.check_build_origin_and_author.outputs.build_origin }}"
           exit 0
+        } else {
+          Write-Host "build_origin=pass"
+          echo "::set-env name=BUILD_ORIGIN::pass"
         }
 
     - name: Build NanoXLSX project
@@ -51,7 +50,7 @@ jobs:
         shell: powershell
     
     - name: Push changes to GitHub
-      if: steps.check_build_origin_and_author.outputs.build_origin == 'pass'
+      if: env.BUILD_ORIGIN == 'pass'
       run: |
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
@@ -62,8 +61,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
     
     - name: Skip Push to GitHub
-      if: steps.check_build_origin_and_author.outputs.build_origin != 'pass'
+      if: env.BUILD_ORIGIN  != 'pass'
       run: echo "Build not triggered from master branch, skipping push to GitHub step"
+      env:
+        GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
     
     - name: Clean up docs folder
       shell: powershell
