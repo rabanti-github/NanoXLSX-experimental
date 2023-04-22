@@ -21,7 +21,8 @@ jobs:
         if ($email -eq "actions@github.com" -and $name -eq "GitHub Actions") {
           echo "build_origin=skip" >> "$GITHUB_ENV"
           Write-Host "Skipping step because the last commit was system triggered"
-          exit 1
+          echo "build_origin=skip" >> "$GITHUB_ENV"
+          exit 0
         } else {
           echo "build_origin=pass" >> "$GITHUB_ENV"
         }
