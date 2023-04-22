@@ -26,7 +26,8 @@ jobs:
           Write-Host "build_origin=skip" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
           Write-Host "Skipping step because the last commit was system triggered"
         } else {
-          Write-Host "build_origin=pass" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
+        Write-Host "build_origin=pass" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
+        Write-Host "build_origin=${{ steps.check_build_origin_and_author.outputs.build_origin }}"
           exit 0
         }
 
