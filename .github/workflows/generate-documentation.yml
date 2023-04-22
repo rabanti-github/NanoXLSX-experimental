@@ -23,9 +23,9 @@ jobs:
         $email = git config --global user.email
         $name = git config --global user.name
         if ($email -eq "actions@github.com" -and $name -eq "GitHub Actions") {
-          Write-Host "build_origin=master" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
+          Write-Host "Skipping step because the last commit was system triggered"
         } else {
-          Write-Host "Skipping step due to incorrect user email and name"
+          Write-Host "build_origin=master" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
           exit 0
         }
 
