@@ -16,19 +16,19 @@ jobs:
       id: check_build_origin_and_author
       shell: powershell
       run: |
-        if ("${{ github.ref }}" -ne "refs/heads/master") {
-          Write-Host "build_origin=skip" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
-          exit 0
-        }
-        $email = git config --global user.email
-        $name = git config --global user.name
-        if ($email -eq "actions@github.com" -and $name -eq "GitHub Actions") {
-          Write-Host "build_origin=skip" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
-          Write-Host "Skipping step because the last commit was system triggered"
+        if ("${{ github.ref }}" -eq "refs/heads/master") {
+          $email = git config --global user.email
+          $name = git config --global user.name
+          if ($email -eq "actions@github.com" -and $name -eq "GitHub Actions") {
+            Write-Host "build_origin=skip" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
+            Write-Host "Skipping step because the last commit was system triggered"
+          } else {
+            Write-Host "build_origin=pass" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
+            Write-Host "build_origin=${{ steps.check_build_origin_and_author.outputs.build_origin }}"
+          }
         } else {
-        Write-Host "build_origin=pass" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
-        Write-Host "build_origin=${{ steps.check_build_origin_and_author.outputs.build_origin }}"
-          exit 0
+          Write-Host "build_origin=skip" | Out-File -Encoding utf8 -FilePath $env:GITHUB_ENV -Append
+          Write-Host "Skipping step because build was not triggered from master branch"
         }
 
     - name: Build NanoXLSX project
