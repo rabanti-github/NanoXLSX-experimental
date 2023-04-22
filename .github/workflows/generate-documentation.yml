@@ -2,12 +2,15 @@ name: Generate Documentation
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+    paths-ignore: 
+      - 'docs/**'
 
 jobs:
   build:
     runs-on: windows-2022
-
+      
     steps:
     - name: Install checkout
       uses: actions/checkout@v3
