@@ -43,7 +43,7 @@ jobs:
         git config --global user.name "GitHub Actions"
         git add -A
         git commit -m "Update documentation"
-        git push origin main
+        git push origin master
       env:
         GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
     
