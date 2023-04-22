@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Install checkout
       uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.PUSH_TOKEN }}
       
     - name: Check build origin and author
       id: check_build_origin_and_author
