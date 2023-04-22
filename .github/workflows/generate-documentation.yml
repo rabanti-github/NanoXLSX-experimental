@@ -22,8 +22,10 @@ jobs:
           echo "build_origin=skip" >> $env:GITHUB_ENV
           Write-Host "Skipping step because the last commit was system triggered"
           echo "build_origin=skip" >> $env:GITHUB_ENV
+          exit 0
         } else {
           echo "build_origin=pass" >> $env:GITHUB_ENV
+          exit 0
         }
 
     - name: Build NanoXLSX project
