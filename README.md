@@ -4,6 +4,11 @@
 ![license](https://img.shields.io/github/license/rabanti-github/NanoXlsx.svg)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frabanti-github%2FNanoXLSX.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Frabanti-github%2FNanoXLSX?ref=badge_shield)
 
+**IMPORTANT! DO NOT LINK TO THIS REPOSITORY. IT IS JUST TO PERFORM TESTS ON GITHUB ACTIONS THAT MUST BE DONE ON MASTER. THE PROJECT IS WAS CREATED TO PREVENT COMMIT SPAMMING THE LIVE REPOSITORY.**
+**THIS REPOSITORY CAN BE DELETED ANY TIME!**
+---
+
+
 NanoXLSX is a small .NET library written in C#, to create and read Microsoft Excel files in the XLSX format (Microsoft Excel 2007 or newer) in an easy and native way
 
 * **Minimum of dependencies** (\*
