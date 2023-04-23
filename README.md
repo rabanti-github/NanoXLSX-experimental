@@ -4,7 +4,7 @@
 ![license](https://img.shields.io/github/license/rabanti-github/NanoXlsx.svg)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frabanti-github%2FNanoXLSX.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Frabanti-github%2FNanoXLSX?ref=badge_shield)
 
-**IMPORTANT! DO NOT LINK TO THIS REPOSITORY. IT IS JUST TO PERFORM TESTS ON GITHUB ACTIONS THAT MUST BE DONE ON MASTER. THE PROJECT IS WAS CREATED TO PREVENT COMMIT SPAMMING THE LIVE REPOSITORY.**
+**IMPORTANT! DO NOT LINK TO THIS REPOSITORY. IT IS JUST TO PERFORM TESTS ON GITHUB ACTIONS THAT MUST BE DONE ON MASTER. THE PROJECT WAS CREATED TO PREVENT COMMIT SPAMMING THE LIVE REPOSITORY.**
 **THIS REPOSITORY CAN BE DELETED ANY TIME!**
 ---
 
@@ -133,7 +133,7 @@ Place all .CS files from the NanoXLSX source folder and its sub-folders into you
 
 ## Further References
 
-See the full **API-Documentation** at: [https://rabanti-github.github.io/NanoXLSX/](https://rabanti-github.github.io/NanoXLSX/).
+See the full **API-Documentation** at: [https://rabanti-github.github.io/NanoXLSX-experimental/](https://rabanti-github.github.io/NanoXLSX-experimental/).
 
 The [demo project](https://github.com/rabanti-github/NanoXLSX/tree/master/Demo) contains 18 simple use cases. You can find also the full documentation in the [Documentation-Folder](https://github.com/rabanti-github/NanoXLSX/tree/master/docs) (html files or single chm file) or as C# documentation in the particular .CS files.
 
