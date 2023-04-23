@@ -92,9 +92,9 @@ If you want to compile the documentation project %28folder: Documentation%3b pro
 &amp;lt%3bh3&amp;gt%3bUsing NuGet&amp;lt%3b/h3&amp;gt%3b
 
 &amp;lt%3bh4&amp;gt%3bBy Package Manager:&amp;lt%3b/h4&amp;gt%3b
-&amp;lt%3bpre&amp;gt%3b&amp;lt%3bcode&amp;gt%3bInstall-Package PicoXLSX&amp;lt%3b/code&amp;gt%3b&amp;lt%3b/pre&amp;gt%3b
+&amp;lt%3bcode&amp;gt%3bInstall-Package PicoXLSX&amp;lt%3b/code&amp;gt%3b
 &amp;lt%3bh4&amp;gt%3bBy .NET CLI:&amp;lt%3b/h4&amp;gt%3b
-&amp;lt%3bpre&amp;gt%3b&amp;lt%3bcode&amp;gt%3bdotnet add package PicoXLSX&amp;lt%3b/code&amp;gt%3b&amp;lt%3b/pre&amp;gt%3b
+&amp;lt%3bcode&amp;gt%3bdotnet add package PicoXLSX&amp;lt%3b/code&amp;gt%3b
 &amp;lt%3bh3&amp;gt%3bAs DLL&amp;lt%3b/h3&amp;gt%3b
 
 Simply place the NanoXLSX DLL into your .NET project and add a reference to it. Please keep in mind that the .NET version of your solution must match with the runtime version of the NanoXLSX DLL %28currently compiled with 4.5 and .NET Standard 2.0%29.
@@ -106,33 +106,33 @@ Place all .CS files from the NanoXLSX source folder and its sub-folders into you
 &amp;lt%3bh2&amp;gt%3bUsage %28Quick Start%29&amp;lt%3b/h2&amp;gt%3b
 
 &amp;lt%3bh2&amp;gt%3bQuick Start %28shortened syntax%29&amp;lt%3b/h2&amp;gt%3b
-&amp;lt%3bpre&amp;gt%3b&amp;lt%3bcode&amp;gt%3b
+&amp;lt%3bcode&amp;gt%3b
 Workbook workbook = new Workbook%28&amp;amp%3bquot%3bmyWorkbook.xlsx&amp;amp%3bquot%3b, &amp;amp%3bquot%3bSheet1&amp;amp%3bquot%3b%29%3b         // Create new workbook with a worksheet called Sheet1
  workbook.WS.Value%28&amp;amp%3bquot%3bSome Data&amp;amp%3bquot%3b%29%3b                                        // Add cell A1
  workbook.WS.Formula%28&amp;amp%3bquot%3b=A1&amp;amp%3bquot%3b%29%3b                                            // Add formula to cell B1
  workbook.WS.Down%28%29%3b                                                    // Go to row 2
  workbook.WS.Value%28DateTime.Now, Style.BasicStyles.Bold%29%3b               // Add formatted value to cell A2
  workbook.Save%28%29%3b                                                       // Save the workbook as myWorkbook.xlsx
-&amp;lt%3b/code&amp;gt%3b&amp;lt%3b/pre&amp;gt%3b
+&amp;lt%3b/code&amp;gt%3b
 &amp;lt%3bh2&amp;gt%3bQuick Start %28regular syntax%29&amp;lt%3b/h2&amp;gt%3b
-&amp;lt%3bpre&amp;gt%3b&amp;lt%3bcode&amp;gt%3b
+&amp;lt%3bcode&amp;gt%3b
 Workbook workbook = new Workbook%28&amp;amp%3bquot%3bmyWorkbook.xlsx&amp;amp%3bquot%3b, &amp;amp%3bquot%3bSheet1&amp;amp%3bquot%3b%29%3b         // Create new workbook with a worksheet called Sheet1
  workbook.CurrentWorksheet.AddNextCell%28&amp;amp%3bquot%3bSome Data&amp;amp%3bquot%3b%29%3b                    // Add cell A1
  workbook.CurrentWorksheet.AddNextCell%2842%29%3b                             // Add cell B1
  workbook.CurrentWorksheet.GoToNextRow%28%29%3b                               // Go to row 2
  workbook.CurrentWorksheet.AddNextCell%28DateTime.Now%29%3b                   // Add cell A2
  workbook.Save%28%29%3b                                                       // Save the workbook as myWorkbook.xlsx
-&amp;lt%3b/code&amp;gt%3b&amp;lt%3b/pre&amp;gt%3b
+&amp;lt%3b/code&amp;gt%3b
 
 &amp;lt%3bh2&amp;gt%3bQuick Start %28read%29&amp;lt%3b/h2&amp;gt%3b
-&amp;lt%3bpre&amp;gt%3b&amp;lt%3bcode&amp;gt%3b 
+&amp;lt%3bcode&amp;gt%3b 
 Workbook wb = Workbook.Load%28&amp;quot%3bbasic.xlsx&amp;quot%3b%29%3b                             // Read the workbook
  System.Console.WriteLine%28&amp;quot%3bcontains worksheet name: &amp;quot%3b + wb.CurrentWorksheet.SheetName%29%3b
  foreach %28KeyValuePair&amp;lt%3bstring, Cell&amp;gt%3b cell in wb.CurrentWorksheet.Cells%29
  {
     System.Console.WriteLine%28&amp;quot%3bCell address: &amp;quot%3b + cell.Key + &amp;quot%3b: content:&amp;#39%3b&amp;quot%3b + cell.Value.Value + &amp;quot%3b&amp;#39%3b&amp;quot%3b%29%3b
  }
-&amp;lt%3b/code&amp;gt%3b&amp;lt%3b/pre&amp;gt%3b</ProjectSummary>
+&amp;lt%3b/code&amp;gt%3b</ProjectSummary>
     <TransformComponentArguments>
       <Argument Key="logoFile" Value="NanoXLSX.png" />
       <Argument Key="logoHeight" Value="72" />
