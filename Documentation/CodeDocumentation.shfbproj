@@ -97,7 +97,7 @@ If you want to compile the documentation project %28folder: Documentation%3b pro
 
 &amp;lt%3bh4&amp;gt%3bBy Package Manager:&amp;lt%3b/h4&amp;gt%3b
 &amp;lt%3bpre&amp;gt%3b
-&amp;lt%3bcode&amp;gt%3bInstall-Package PicoXLSX&amp;lt%3b/code&amp;gt%3b
+&amp;lt%3bspan style=&amp;quot%3bcolor:Blue%3b background-color:LightGray&amp;quot%3b&amp;gt%3bInstall-Package PicoXLSX&amp;lt%3b/span&amp;gt%3b
 &amp;lt%3b/pre&amp;gt%3b
 
 &amp;lt%3bh4&amp;gt%3bBy .NET CLI:&amp;lt%3b/h4&amp;gt%3b
