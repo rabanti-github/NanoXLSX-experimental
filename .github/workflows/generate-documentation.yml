@@ -27,9 +27,9 @@ jobs:
       shell: bash
       run: |
         set -ex
-        email=$(git config --global user.email)
+        email=$(git log -n 1 --pretty=format:%ae)
         echo "email is: $email"
-        name=$(git config --global user.name)
+        name=$(git log -n 1 --pretty=format:%an)
         if [ "$email" = "actions@github.com" ] && [ "$name" = "GitHub Actions" ]; then
           echo "build_origin=skip" >> $GITHUB_ENV
           echo "Skipping step because the last commit was system triggered"
