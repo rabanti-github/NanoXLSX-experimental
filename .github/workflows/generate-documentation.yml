@@ -6,7 +6,7 @@ on:
       - master
     paths-ignore: 
       - 'docs/**'
-      - '.github/**'
+      - '.github-2/**'
 
 jobs:
   build:
@@ -24,6 +24,7 @@ jobs:
       
     - name: Check build origin and author
       id: check_build_origin_and_author
+      shell: bash
       run: |
         email=$(git config --global user.email)
         name=$(git config --global user.name)
