@@ -10,7 +10,8 @@
     <version>2.1.1</version>
     <modules>
         <module>NanoXLSX4j.Lib</module>
-        <module>NanoXLSX4j.Demo</module>
+        <!-- Do not add this to build -->
+        <!-- <module>NanoXLSX4j.Demo</module> -->
     </modules>
 
     <properties>
