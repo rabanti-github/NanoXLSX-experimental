@@ -21,9 +21,6 @@ jobs:
       with:
         distribution: 'zulu'
         java-version: '17'
-
-    - name: Build with Maven
-      run: mvn --batch-mode --update-snapshots clean package -DskipTests=true
       
     - name: Check build origin and author
       id: check_build_origin_and_author
