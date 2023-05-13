@@ -28,6 +28,7 @@ jobs:
       run: |
         set -ex
         email=$(git config --global user.email)
+        echo "email is: $email"
         name=$(git config --global user.name)
         if [ "$email" = "actions@github.com" ] && [ "$name" = "GitHub Actions" ]; then
           echo "build_origin=skip" >> $GITHUB_ENV
