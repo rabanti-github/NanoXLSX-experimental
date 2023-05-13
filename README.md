@@ -154,3 +154,4 @@ Hint: You will find most certainly any function, and the way how to use it, in t
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frabanti-github%2FNanoXLSX.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Frabanti-github%2FNanoXLSX?ref=badge_large)
 
 test
+
